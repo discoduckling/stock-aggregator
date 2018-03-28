@@ -1,0 +1,52 @@
+*,
+*::after,
+**::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%;
+  height: 100%; }
+
+body {
+  height: 100%; }
+
+.app {
+  width: 100%; }
+
+.content-center {
+  margin: 0 auto; }
+
+.stock-container {
+  min-height: calc(2rem + (3 * 3rem));
+  max-width: 80rem;
+  width: 60%;
+  min-width: 40rem;
+  border: 1px solid blue;
+  display: grid;
+  grid-template-columns: 25% 50% 25%; }
+
+.ticker {
+  display: flex;
+  border: 1px solid red;
+  flex-grow: 1;
+  flex-basis: 100%;
+  align-items: center;
+  justify-content: center; }
+
+.price {
+  display: flex;
+  border: 1px solid green;
+  flex-grow: 1;
+  flex-basis: 100%;
+  align-items: center;
+  justify-content: center; }
+
+.row {
+  color: blue;
+  border: 1px solid blue; }
+  .row--header {
+    height: 2rem; }
+  .row--data {
+    height: 3rem; }

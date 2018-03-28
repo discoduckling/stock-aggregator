@@ -1,0 +1,25 @@
+.ticker {
+    display: flex;
+    border: 1px solid red;
+    // height: 100%;
+    // width: 30%;
+    // max-width: 13rem;
+    // min-width: 3rem;
+    flex-grow: 1;
+    flex-basis: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.price {
+    display: flex;
+    border: 1px solid green;
+    // height: 100%;
+    // width: 30%;
+    // max-width: 13rem;
+    // min-width: 3rem;
+    flex-grow: 1;
+    flex-basis: 100%;
+    align-items: center;
+    justify-content: center;
+}

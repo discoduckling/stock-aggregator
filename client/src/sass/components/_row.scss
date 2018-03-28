@@ -1,0 +1,10 @@
+.row {
+    color: blue;
+    border: 1px solid blue;
+    &--header {
+        height: $category-height;
+    }
+    &--data {
+        height: $data-height;
+    }
+}
