@@ -16,7 +16,7 @@ class StockContainer extends Component {
     deleteRowHandler = () => {
         let rows = [...this.state.rows];
         rows.pop();
-        console.log(rows);
+        // console.log(rows);
         this.setState({ rows });
     }
     render () {
@@ -33,7 +33,6 @@ class StockContainer extends Component {
                     </div>
                     <Price price={50} />
                 </div>
-                {/* <button onClick={() => this.addRowHandler()}>Add Row</button> */}
             </div>
         );
     }
