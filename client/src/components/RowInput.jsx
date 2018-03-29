@@ -4,6 +4,8 @@ import DatePicker from 'material-ui/DatePicker';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
+// import PropTypes from 'prop-types';
+
 const muiTheme = getMuiTheme({
     // textField: {
     //     width: '100%',
@@ -17,20 +19,45 @@ const muiTheme = getMuiTheme({
   
 class RowInput extends Component {
     state = {
-        brokerage: 1
+        date: null,
+        qty: '',
+        cost: ''
     }
+
     handleChange = (e, index, value) => {
         this.setState({brokerage: value});
     }
+    onDateChange = (date) => {
+        this.setState({ date })
+    }
+    onQtyChange = (qty) => {
+        this.setState({ qty })
+    }
+    onCostChange = (cost) => {
+        this.setState({ cost })
+    }
+    onSubmit = () => {
+        // console.log('clicked');
+        const sendState = this.state;
+        this.props.clicked(sendState);
+        this.setState({
+            date: null,
+            qty: '',
+            cost: ''
+        });
+    }
     render () {
+        // console.log(this.state);
         return (
             <MuiThemeProvider muiTheme={muiTheme}>
             <div className="row row--input">
                 <div className="row--input__date">
                 </div>
                 <div className="row--input__date">
-                        <DatePicker 
-                        inputStyle={{color: 'white', textAlign: 'center'}}
+                        <DatePicker
+                        value={this.state.date} 
+                        onChange={(e, date) => this.onDateChange(date)}
+                        inputStyle={{color: 'white', textAlign: 'center', top: '-3px'}}
                         style={{
                             height: '3rem',
                             width: '100%',
@@ -42,19 +69,21 @@ class RowInput extends Component {
                             fontSize: '1.5rem', 
                             color: 'white', 
                             fontFamily: "'Fira Sans', sans-serif",
-                            paddingBottom: '5px'
                      }} 
-                        hinText='test' />
+                />
                     
                 </div>
                 <div className="row--input__name">
                      <TextField 
+                        value={this.state.qty}
+                        onChange={(e, qty) => this.onQtyChange(qty)}
+                        id="qty"
                         inputStyle={{
                             color: 'white', 
                             textAlign: 'center', 
                             fontSize: '1.5rem',
                             fontFamily: "'Fira Sans', sans-serif",
-                            paddingBottom: '5px'
+                            top: '-3px'
                         }}
                         style={{
                             height: '3rem',
@@ -64,18 +93,21 @@ class RowInput extends Component {
                 </div>
                 <div className="row--input__name">
                     <TextField 
+                        value={this.state.cost}
+                        id="cost"
+                        onChange={(e, cost) => this.onCostChange(cost)}
                         inputStyle={{
                             color: 'white', 
                             textAlign: 'center', 
                             fontSize: '1.5rem',
                             fontFamily: "'Fira Sans', sans-serif",
-                            paddingBottom: '5px',
+                            top: '-3px'
                         }}
                         style={{
                             height: '3rem',
                             width: '60%',
                         }}
-                    hinText='Cost Basis' />
+                    />
                 </div>
                 <div className="row--input__name"></div>
                 <div className="row--input__button">
@@ -90,7 +122,8 @@ class RowInput extends Component {
                             fontSize: '2rem'}}
                         label="+" 
                         style={{height: '3rem', minWidth: '2rem', width: '100%'}} 
-                        onClick={this.props.clicked}/>
+                        onClick={this.onSubmit}
+                        />
                 </div>
             </div>
             </MuiThemeProvider>
@@ -98,5 +131,11 @@ class RowInput extends Component {
     }
     
 }
+
+// RowInput.propTypes = {
+//     date: PropTypes.instanceOf(Date).isRequired,
+//     qty: PropTypes.number.isRequired,
+//     cost: PropTypes.number.isRequired
+// }
 
 export default RowInput;

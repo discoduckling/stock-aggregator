@@ -32,10 +32,10 @@ class RowData extends Component  {
                         }}
                         className="row row--data">
                         <div className="row--data__date">#</div>
-                        <div className="row--data__date">Date</div>
-                        <div className="row--data__name">QTY</div>
-                        <div className="row--data__name">Cost Basis</div>
-                        <div className="row--data__name">Profit/Gain</div>
+                        <div className="row--data__date">{this.props.date}</div>
+                        <div className="row--data__name">{this.props.qty}</div>
+                        <div className="row--data__name">{this.props.cost}</div>
+                        <div className="row--data__name">{this.props.profit}</div>
                         <div className="row--data__button">
                             <FlatButton 
                             labelStyle={{
