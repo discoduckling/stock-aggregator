@@ -44,9 +44,12 @@ body {
   justify-content: center; }
 
 .row {
-  color: blue;
-  border: 1px solid blue; }
+  color: blue; }
   .row--header {
     height: 2rem; }
   .row--data {
     height: 3rem; }
+    .row--data:nth-child(even) {
+      background-color: red; }
+    .row--data:nth-child(odd) {
+      background-color: green; }

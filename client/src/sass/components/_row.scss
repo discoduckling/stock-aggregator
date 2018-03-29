@@ -1,10 +1,16 @@
 .row {
     color: blue;
-    border: 1px solid blue;
+    // border: 1px solid blue;
     &--header {
         height: $category-height;
     }
     &--data {
         height: $data-height;
+        &:nth-child(even) {
+            background-color: red;
+        }
+        &:nth-child(odd) {
+            background-color: green;
+        }
     }
 }
