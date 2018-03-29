@@ -3,6 +3,8 @@ import Ticker from '../components/Ticker';
 import RowHeader from '../components/RowHeader';
 import RowData from '../components/RowData';
 import Price from '../components/Price';
+import RowInput from '../components/RowInput';
+
 class StockContainer extends Component {
     state = {
         rows: []
@@ -27,10 +29,11 @@ class StockContainer extends Component {
                     <div>
                         <RowHeader />
                         { dataRows }
+                        <RowInput clicked={() => this.addRowHandler()}/>
                     </div>
                     <Price price={50} />
                 </div>
-                <button onClick={() => this.addRowHandler()}>Add Row</button>
+                {/* <button onClick={() => this.addRowHandler()}>Add Row</button> */}
             </div>
         );
     }

@@ -72,7 +72,6 @@ body {
   background: linear-gradient(to bottom, #606c88 0%, #3f4c6b 100%);
   color: white; }
   .row--data__name, .row--data__date, .row--data__button {
-    height: 3rem;
     text-align: center;
     display: inline-block; }
   .row--data__date {
@@ -80,6 +79,24 @@ body {
   .row--data__name {
     width: 22%; }
   .row--data__button {
+    width: 9%; }
+
+.row--input {
+  height: 3rem;
+  background: #606c88;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #606c88 0%, #3f4c6b 100%);
+  background: -webkit-linear-gradient(top, #606c88 0%, #3f4c6b 100%);
+  background: linear-gradient(to bottom, #606c88 0%, #3f4c6b 100%);
+  color: white; }
+  .row--input__name, .row--input__date, .row--input__button {
+    text-align: center;
+    display: inline-block; }
+  .row--input__date {
+    width: 12.5%; }
+  .row--input__name {
+    width: 22%; }
+  .row--input__button {
     width: 9%; }
 
 .button {

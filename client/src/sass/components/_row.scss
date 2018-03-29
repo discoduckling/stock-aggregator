@@ -34,7 +34,31 @@
         &__name,
         &__date,
         &__button {
-            height: $data-height;
+            // height: $data-height;
+            text-align: center;
+            display: inline-block;
+        }
+        &__date {
+            width: 12.5%
+        }
+        &__name {
+            width: 22%;
+        }
+        &__button {
+            width: 9%;
+        }
+    }
+    &--input {
+        height: 3rem;
+        background: rgb(96,108,136); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(96,108,136,1) 0%, rgba(63,76,107,1) 100%); 
+        background: -webkit-linear-gradient(top, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%); 
+        background: linear-gradient(to bottom, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%); 
+        color: white;
+        &__name,
+        &__date,
+        &__button {
+            // height: $data-height;
             text-align: center;
             display: inline-block;
         }
