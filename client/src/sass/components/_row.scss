@@ -1,16 +1,56 @@
 .row {
-    color: blue;
-    // border: 1px solid blue;
     &--header {
-        height: $category-height;
+        color: white;
+        &__name,
+        &__date,
+        &__button {
+            height: $category-height;
+            text-align: center;
+            display: inline-block;
+            &:nth-child(even) {
+                background-color: rgb(0, 0, 163);
+            }
+            &:nth-child(odd) {
+                background-color: rgb(37, 37, 255);
+            }
+        }
+        &__date {
+            width: 12.5%
+        }
+        &__name {
+            width: 22%;
+        }
+        &__button {
+            width: 9%
+        }
     }
     &--data {
-        height: $data-height;
-        &:nth-child(even) {
-            background-color: red;
+        
+        background: rgb(96,108,136); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(96,108,136,1) 0%, rgba(63,76,107,1) 100%); 
+        background: -webkit-linear-gradient(top, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%); 
+        background: linear-gradient(to bottom, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%); 
+        color: white;
+        &__name,
+        &__date,
+        &__button {
+            height: $data-height;
+            text-align: center;
+            display: inline-block;
         }
-        &:nth-child(odd) {
-            background-color: green;
+        &__date {
+            width: 12.5%
+        }
+        &__name {
+            width: 22%;
+        }
+        &__button {
+            width: 9%;
         }
     }
+}
+
+.button {
+    width: 100%;
+    text-align: center;
 }

@@ -28,12 +28,22 @@ class RowData extends Component  {
                              
                         }}
                         className="row row--data">
-                        Data Row <button onClick={this.onClickHandler} 
-                        style={{ 
-                            opacity: style.opacity, 
-                            height: style.height * .7, 
-                            fontSize: `${.4 * style.height}px`
-                        }}>Remove</button>
+                        <div className="row--data__date">B</div>
+                        <div className="row--data__date">Date</div>
+                        <div className="row--data__name">QTY</div>
+                        <div className="row--data__name">Cost Basis</div>
+                        <div className="row--data__name">Profit/Gain</div>
+                        <div className="row--data__button">
+                            <button 
+                                className="button"
+                                onClick={this.onClickHandler}
+                                style={{
+                                    opacity: style.opacity,
+                                    height: style.height * .7,
+                                    fontSize: `${.4 * style.height}px`
+                                }}>X</button>
+                        </div>
+                        
                     </div>
                 )}
             </Motion>

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Quattrocento+Sans");
 *,
 *::after,
 **::before {
@@ -23,33 +24,64 @@ body {
   max-width: 80rem;
   width: 60%;
   min-width: 40rem;
-  border: 1px solid blue;
   display: grid;
-  grid-template-columns: 25% 50% 25%; }
+  grid-template-columns: 25% 50% 25%;
+  background-color: lightgray;
+  border-radius: 4rem; }
 
 .ticker {
   display: flex;
-  border: 1px solid red;
   flex-grow: 1;
   flex-basis: 100%;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  font-family: 'Quattrocento Sans', sans-serif;
+  font-size: 4rem; }
 
 .price {
   display: flex;
-  border: 1px solid green;
   flex-grow: 1;
   flex-basis: 100%;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  font-family: 'Quattrocento Sans', sans-serif;
+  font-size: 4rem; }
 
-.row {
-  color: blue; }
-  .row--header {
-    height: 2rem; }
-  .row--data {
-    height: 3rem; }
-    .row--data:nth-child(even) {
-      background-color: red; }
-    .row--data:nth-child(odd) {
-      background-color: green; }
+.row--header {
+  color: white; }
+  .row--header__name, .row--header__date, .row--header__button {
+    height: 2rem;
+    text-align: center;
+    display: inline-block; }
+    .row--header__name:nth-child(even), .row--header__date:nth-child(even), .row--header__button:nth-child(even) {
+      background-color: #0000a3; }
+    .row--header__name:nth-child(odd), .row--header__date:nth-child(odd), .row--header__button:nth-child(odd) {
+      background-color: #2525ff; }
+  .row--header__date {
+    width: 12.5%; }
+  .row--header__name {
+    width: 22%; }
+  .row--header__button {
+    width: 9%; }
+
+.row--data {
+  background: #606c88;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #606c88 0%, #3f4c6b 100%);
+  background: -webkit-linear-gradient(top, #606c88 0%, #3f4c6b 100%);
+  background: linear-gradient(to bottom, #606c88 0%, #3f4c6b 100%);
+  color: white; }
+  .row--data__name, .row--data__date, .row--data__button {
+    height: 3rem;
+    text-align: center;
+    display: inline-block; }
+  .row--data__date {
+    width: 12.5%; }
+  .row--data__name {
+    width: 22%; }
+  .row--data__button {
+    width: 9%; }
+
+.button {
+  width: 100%;
+  text-align: center; }
