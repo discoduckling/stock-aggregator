@@ -9,9 +9,16 @@ class StockContainer extends Component {
     state = {
         rows: []
     }
-    addRowHandler = () => {
-        let rows = [...this.state.rows, 'test'];
+    addRowHandler = (sentRow) => {
+        let rows = [...this.state.rows,
+            {
+                date: sentRow.date,
+                qty: sentRow.qty,
+                cost: sentRow.cost
+            }
+        ]
         this.setState({ rows });
+        // console.log(sentRow);
     }
     deleteRowHandler = () => {
         let rows = [...this.state.rows];
@@ -19,9 +26,21 @@ class StockContainer extends Component {
         // console.log(rows);
         this.setState({ rows });
     }
+    convertDate = (date) => {
+        return `${date.getMonth() + 1}/${date.getDate()}/${date.getYear() - 100}`
+    };
+
     render () {
         let dataRows = null;
-        dataRows = this.state.rows.map(row => <RowData />);
+        dataRows = this.state.rows.map((row, i) => <RowData 
+            key={i}
+            date={this.convertDate(row.date)} 
+            qty={row.qty} 
+            cost={row.cost} 
+            profit={0}
+            />
+        );
+        console.log(this.state.rows)
         return (
             <div>
                 <div className='content-center stock-container'>
@@ -29,7 +48,7 @@ class StockContainer extends Component {
                     <div>
                         <RowHeader />
                         { dataRows }
-                        <RowInput clicked={() => this.addRowHandler()}/>
+                        <RowInput clicked={(sendState) => this.addRowHandler(sendState)}/>
                     </div>
                     <Price price={50} />
                 </div>
