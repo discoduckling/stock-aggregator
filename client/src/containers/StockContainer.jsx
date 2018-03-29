@@ -31,7 +31,6 @@ class StockContainer extends Component {
                     <Price price={50} />
                 </div>
                 <button onClick={() => this.addRowHandler()}>Add Row</button>
-                <button onClick={() => this.deleteRowHandler()}>Delete Row</button>
             </div>
         );
     }
