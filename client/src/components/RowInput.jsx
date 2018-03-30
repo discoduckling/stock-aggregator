@@ -52,7 +52,7 @@ class RowInput extends Component {
         return (
             <MuiThemeProvider muiTheme={muiTheme}>
             <div className="row row--input">
-                <div className="row--input__date">
+                <div className="row--input__num">
                 </div>
                 <div className="row--input__date">
                         <DatePicker

@@ -31,7 +31,7 @@ class RowData extends Component  {
                              
                         }}
                         className="row row--data">
-                        <div className="row--data__date">#</div>
+                        <div className="row--data__num">#</div>
                         <div className="row--data__date">{this.props.date}</div>
                         <div className="row--data__name">{this.props.qty}</div>
                         <div className="row--data__name">{this.props.cost}</div>

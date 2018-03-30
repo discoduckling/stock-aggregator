@@ -3,7 +3,8 @@
         color: white;
         &__name,
         &__date,
-        &__button {
+        &__button,
+        &__num {
             position: relative;
             font-family: 'Fira Sans', sans-serif;
             height: $category-height;
@@ -12,8 +13,11 @@
             display: inline-block;
             background-color: rgba(63,76,107,1);
         }
+        &__num {
+            width: 8%;
+        }
         &__date {
-            width: 12.5%
+            width: 17%
         }
         &__name {
             width: 22%;
@@ -34,13 +38,16 @@
         color: white;
         &__name,
         &__date,
-        &__button {
-
+        &__button,
+        &__num {
             text-align: center;
             display: inline-block;
         }
+        &__num {
+            width: 8%;
+        }
         &__date {
-            width: 12.5%
+            width: 17%
         }
         &__name {
             width: 22%;
@@ -59,12 +66,16 @@
         color: white;
         &__name,
         &__date,
-        &__button {
+        &__button,
+        &__num {
             text-align: center;
             display: inline-block;
         }
+        &__num {
+            width: 8%;
+        }
         &__date {
-            width: 12.5%
+            width: 17%
         }
         &__name {
             width: 22%;
