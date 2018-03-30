@@ -7,6 +7,7 @@ class RowData extends Component  {
         show: true
     }
     onClickHandler = () => {
+        this.props.clicked();
         this.setState({show: false})
     }
     render () {
@@ -31,7 +32,7 @@ class RowData extends Component  {
                              
                         }}
                         className="row row--data">
-                        <div className="row--data__date">#</div>
+                        <div className="row--data__num">&nbsp;</div>
                         <div className="row--data__date">{this.props.date}</div>
                         <div className="row--data__name">{this.props.qty}</div>
                         <div className="row--data__name">{this.props.cost}</div>

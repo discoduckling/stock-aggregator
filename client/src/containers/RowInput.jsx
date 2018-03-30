@@ -19,9 +19,9 @@ const muiTheme = getMuiTheme({
   
 class RowInput extends Component {
     state = {
-        date: null,
-        qty: '',
-        cost: ''
+        date: new Date(),
+        qty: '0',
+        cost: '0'
     }
 
     handleChange = (e, index, value) => {
@@ -41,17 +41,18 @@ class RowInput extends Component {
         const sendState = this.state;
         this.props.clicked(sendState);
         this.setState({
-            date: null,
-            qty: '',
-            cost: ''
+            date: new Date(),
+            qty: '0',
+            cost: '0'
         });
     }
+
     render () {
         // console.log(this.state);
         return (
             <MuiThemeProvider muiTheme={muiTheme}>
             <div className="row row--input">
-                <div className="row--input__date">
+                <div className="row--input__num">
                 </div>
                 <div className="row--input__date">
                         <DatePicker

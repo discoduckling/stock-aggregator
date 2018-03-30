@@ -54,7 +54,7 @@ body {
 
 .row--header {
   color: white; }
-  .row--header__name, .row--header__date, .row--header__button {
+  .row--header__name, .row--header__date, .row--header__button, .row--header__num {
     position: relative;
     font-family: 'Fira Sans', sans-serif;
     height: 2rem;
@@ -62,8 +62,10 @@ body {
     text-align: center;
     display: inline-block;
     background-color: #3f4c6b; }
+  .row--header__num {
+    width: 8%; }
   .row--header__date {
-    width: 12.5%; }
+    width: 17%; }
   .row--header__name {
     width: 22%; }
   .row--header__button {
@@ -79,11 +81,13 @@ body {
   background: -webkit-linear-gradient(top, #606c88 0%, #3f4c6b 100%);
   background: linear-gradient(to bottom, #606c88 0%, #3f4c6b 100%);
   color: white; }
-  .row--data__name, .row--data__date, .row--data__button {
+  .row--data__name, .row--data__date, .row--data__button, .row--data__num {
     text-align: center;
     display: inline-block; }
+  .row--data__num {
+    width: 8%; }
   .row--data__date {
-    width: 12.5%; }
+    width: 17%; }
   .row--data__name {
     width: 22%; }
   .row--data__button {
@@ -91,17 +95,15 @@ body {
 
 .row--input {
   height: 3rem;
-  background: #606c88;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #606c88 0%, #3f4c6b 100%);
-  background: -webkit-linear-gradient(top, #606c88 0%, #3f4c6b 100%);
-  background: linear-gradient(to bottom, #606c88 0%, #3f4c6b 100%);
+  background-color: #3f4c6b;
   color: white; }
-  .row--input__name, .row--input__date, .row--input__button {
+  .row--input__name, .row--input__date, .row--input__button, .row--input__num {
     text-align: center;
     display: inline-block; }
+  .row--input__num {
+    width: 8%; }
   .row--input__date {
-    width: 12.5%; }
+    width: 17%; }
   .row--input__name {
     width: 22%; }
   .row--input__button {
