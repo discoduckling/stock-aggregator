@@ -8,8 +8,8 @@ import RowInput from './RowInput';
 
 class StockContainer extends Component {
     state = {
-        ticker: 'AAPL',
-        currentPrice: 167.78,
+        ticker: this.props.data.ticker,
+        currentPrice: this.props.data.currentPrice,
         rows: []
     }
     addRowHandler = (sentRow) => {
@@ -57,7 +57,7 @@ class StockContainer extends Component {
             clicked={(id) => this.deleteRowHandler(id)}
             />
         );
-        this.calculateTotalProfit();
+        console.log(this.props);
         return (
             <div>
                 <div className='content-center stock-container'>
