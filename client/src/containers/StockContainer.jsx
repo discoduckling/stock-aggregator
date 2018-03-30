@@ -11,23 +11,24 @@ class StockContainer extends Component {
     }
     addRowHandler = (sentRow) => {
         const key = this.state.rows.length;
+        const id = `${this.convertDate(sentRow.date)}.${sentRow.qty}`;
         let rows = [...this.state.rows,
             {
                 date: sentRow.date,
                 qty: sentRow.qty,
                 cost: sentRow.cost,
-                i: key
+                id: id,
+                active: true
             }
         ]
         this.setState({ rows });
         // console.log(sentRow);
     }
-    deleteRowHandler = (i) => {
-        // console.log(i)
+    deleteRowHandler = (id) => {
         let rows = [...this.state.rows];
-        rows.pop();
-        // console.log(rows);
-        this.setState({ rows });
+        const row = rows.filter(row => row.id === id)[0];
+        row.active = false;
+        this.setState({ rows: rows });
     }
     convertDate = (date) => {
         return `${date.getMonth() + 1}/${date.getDate()}/${date.getYear() - 100}`
@@ -38,11 +39,12 @@ class StockContainer extends Component {
         dataRows = this.state.rows.map((row, i) => <RowData 
             key={i}
             num={i}
+            id={`${this.convertDate(row.date)}.${row.qty}`}
             date={this.convertDate(row.date)} 
             qty={row.qty} 
             cost={row.cost} 
             profit={0}
-            clicked={(i) => this.deleteRowHandler(i)}
+            clicked={(id) => this.deleteRowHandler(id)}
             />
         );
         console.log(this.state.rows)
