@@ -20,6 +20,13 @@ body {
 .content-center {
   margin: 1rem auto; }
 
+.content-container-center {
+  max-width: 80rem;
+  width: 60%;
+  min-width: 55rem;
+  margin: 1rem auto;
+  text-align: end; }
+
 .stock-container {
   min-height: calc(2rem + (3 * 3rem));
   max-width: 80rem;
