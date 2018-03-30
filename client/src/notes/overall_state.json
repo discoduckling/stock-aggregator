@@ -1,0 +1,34 @@
+[
+    {
+        "ticker": "AAPL",
+        "currentPrice": 167.78,
+        "holdings": [
+            {
+                "date": "date-obj",
+                "qty": 35,
+                "cost": 73.45
+            },
+            {
+                "date": "date-obj",
+                "qty": 73,
+                "cost": 69.45
+            },
+            {
+                "date": "date-obj",
+                "qty": 35,
+                "cost": 100.4
+            },
+        ]
+    },
+    {
+        "ticker": "F",
+        "currentPrice": 167.78,
+        "holdings": [
+            {
+                "date": Date-object,
+                "qty": 35,
+                "cost": 73.45
+            }
+        ]
+    },
+]
