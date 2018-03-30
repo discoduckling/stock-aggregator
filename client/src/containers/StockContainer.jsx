@@ -1,37 +1,74 @@
 import React, { Component } from 'react';
 import Ticker from '../components/Ticker';
 import RowHeader from '../components/RowHeader';
-import RowData from '../components/RowData';
+import RowData from './RowData';
 import Price from '../components/Price';
+import RowInput from './RowInput';
+
+
 class StockContainer extends Component {
     state = {
+        ticker: this.props.data.ticker,
+        currentPrice: this.props.data.currentPrice,
         rows: []
     }
-    addRowHandler = () => {
-        let rows = [...this.state.rows, 'test'];
+    addRowHandler = (sentRow) => {
+        const id = `${this.convertDate(sentRow.date)}.${sentRow.qty}`;
+        let rows = [...this.state.rows,
+            {
+                date: sentRow.date,
+                qty: sentRow.qty,
+                cost: sentRow.cost,
+                id: id,
+                active: true
+            }
+        ]
         this.setState({ rows });
     }
-    deleteRowHandler = () => {
+    deleteRowHandler = (id) => {
         let rows = [...this.state.rows];
-        rows.pop();
-        console.log(rows);
-        this.setState({ rows });
+        const row = rows.filter(row => row.id === id)[0];
+        row.active = false;
+        this.setState({ rows: rows });
+    }
+    convertDate = (date) => {
+        return `${date.getMonth() + 1}/${date.getDate()}/${date.getYear() - 100}`
+    };
+    calculateProfit = (qty, cost) => {
+        return (qty * (this.state.currentPrice - cost)).toFixed(2);
+    }
+    calculateTotalProfit = () => {
+        let activeRows = [...this.state.rows].filter(row => row.active);
+        activeRows = activeRows.map(row => Number(this.calculateProfit(row.qty, row.cost)));
+        const totalProfit = activeRows.reduce((a,b) => a + b, 0);
+        // console.log(totalProfit);
+        return totalProfit;
     }
     render () {
         let dataRows = null;
-        dataRows = this.state.rows.map(row => <RowData />);
+        dataRows = this.state.rows.map((row, i) => <RowData 
+            key={i}
+            num={i}
+            id={`${this.convertDate(row.date)}.${row.qty}`}
+            date={this.convertDate(row.date)} 
+            qty={row.qty} 
+            cost={row.cost} 
+            profit={this.calculateProfit(row.qty, row.cost)}
+            clicked={(id) => this.deleteRowHandler(id)}
+            />
+        );
+        console.log(this.props);
         return (
             <div>
                 <div className='content-center stock-container'>
-                    <Ticker name='AAPL' />
+                    <Ticker name={this.state.ticker} />
                     <div>
                         <RowHeader />
                         { dataRows }
+                        <RowInput clicked={(sendState) => this.addRowHandler(sendState)}/>
                     </div>
-                    <Price price={50} />
+                    <Price price={this.calculateTotalProfit()} />
                 </div>
-                <button onClick={() => this.addRowHandler()}>Add Row</button>
-                <button onClick={() => this.deleteRowHandler()}>Delete Row</button>
             </div>
         );
     }

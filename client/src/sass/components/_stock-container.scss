@@ -2,8 +2,15 @@
     min-height: calc(#{$category-height} + (3 * #{$data_height}));
     max-width: 80rem;
     width: 60%;
-    min-width: 40rem;
-    border: 1px solid blue;
+    min-width: 55rem;
+    // border: 1px solid blue;
     display: grid;
     grid-template-columns: 25% 50% 25%;
+    // background-color: rgb(211, 211, 211);
+    background-color: rgba(63,76,107,1);
+    color: white;
+    border-radius: 2rem;
+    -webkit-box-shadow: -1px 11px 5px -5px rgba(0,0,0,0.48);
+    -moz-box-shadow: -1px 11px 5px -5px rgba(0,0,0,0.48);
+    box-shadow: -1px 11px 5px -5px rgba(0,0,0,0.48);
 }
