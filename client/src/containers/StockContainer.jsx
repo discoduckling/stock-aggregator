@@ -34,6 +34,7 @@ class StockContainer extends Component {
         let dataRows = null;
         dataRows = this.state.rows.map((row, i) => <RowData 
             key={i}
+            num={i}
             date={this.convertDate(row.date)} 
             qty={row.qty} 
             cost={row.cost} 
