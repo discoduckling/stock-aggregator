@@ -5,12 +5,14 @@ import RowData from './RowData';
 import Price from '../components/Price';
 import RowInput from './RowInput';
 
+
 class StockContainer extends Component {
     state = {
+        ticker: 'AAPL',
+        currentPrice: 167.78,
         rows: []
     }
     addRowHandler = (sentRow) => {
-        const key = this.state.rows.length;
         const id = `${this.convertDate(sentRow.date)}.${sentRow.qty}`;
         let rows = [...this.state.rows,
             {
@@ -22,7 +24,6 @@ class StockContainer extends Component {
             }
         ]
         this.setState({ rows });
-        // console.log(sentRow);
     }
     deleteRowHandler = (id) => {
         let rows = [...this.state.rows];
@@ -33,7 +34,16 @@ class StockContainer extends Component {
     convertDate = (date) => {
         return `${date.getMonth() + 1}/${date.getDate()}/${date.getYear() - 100}`
     };
-
+    calculateProfit = (qty, cost) => {
+        return (qty * (this.state.currentPrice - cost)).toFixed(2);
+    }
+    calculateTotalProfit = () => {
+        let activeRows = [...this.state.rows].filter(row => row.active);
+        activeRows = activeRows.map(row => Number(this.calculateProfit(row.qty, row.cost)));
+        const totalProfit = activeRows.reduce((a,b) => a + b, 0);
+        // console.log(totalProfit);
+        return totalProfit;
+    }
     render () {
         let dataRows = null;
         dataRows = this.state.rows.map((row, i) => <RowData 
@@ -43,21 +53,21 @@ class StockContainer extends Component {
             date={this.convertDate(row.date)} 
             qty={row.qty} 
             cost={row.cost} 
-            profit={0}
+            profit={this.calculateProfit(row.qty, row.cost)}
             clicked={(id) => this.deleteRowHandler(id)}
             />
         );
-        console.log(this.state.rows)
+        this.calculateTotalProfit();
         return (
             <div>
                 <div className='content-center stock-container'>
-                    <Ticker name='AAPL' />
+                    <Ticker name={this.state.ticker} />
                     <div>
                         <RowHeader />
                         { dataRows }
                         <RowInput clicked={(sendState) => this.addRowHandler(sendState)}/>
                     </div>
-                    <Price price={50} />
+                    <Price price={this.calculateTotalProfit()} />
                 </div>
             </div>
         );
