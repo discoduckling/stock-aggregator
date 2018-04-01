@@ -1,4 +1,5 @@
-## Front End Technologies Used:
+# Front End Technologies Used
+
 * React Motion
 * Sass
 * React
