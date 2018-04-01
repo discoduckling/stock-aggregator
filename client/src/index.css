@@ -17,6 +17,12 @@ body {
 .app {
   width: 100%; }
 
+.navbar-brand {
+  font-size: 2.5rem; }
+
+.nav-link {
+  font-size: 1rem; }
+
 .content-center {
   margin: 1rem auto; }
 
@@ -82,6 +88,7 @@ body {
   font-family: 'Fira Sans', sans-serif;
   font-size: 12px;
   height: 3rem;
+  line-height: 3rem;
   background: #606c88;
   /* Old browsers */
   background: -moz-linear-gradient(top, #606c88 0%, #3f4c6b 100%);
@@ -119,3 +126,15 @@ body {
 .button {
   width: 100%;
   text-align: center; }
+
+.navbar--dark {
+  background-color: #3f4c6b;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.5);
+  margin-bottom: 3rem; }
+
+.navbar__buttons {
+  font-size: 1.4rem; }

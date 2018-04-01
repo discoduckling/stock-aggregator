@@ -1,0 +1,16 @@
+.navbar {
+    &--dark {
+        background-color: rgba(63,76,107,1);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.5);
+        -moz-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.5);
+        box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.5);
+        margin-bottom: 3rem;
+    }   
+    &__buttons {
+        font-size: 1.4rem;
+    }
+    
+}
+

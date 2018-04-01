@@ -1,17 +1,53 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink
+} from 'reactstrap';
 
-const header = () => {
-    return (
-        <nav className="#37474f blue-grey darken-3">
-            <div className="nav-wrapper container">
-                <a href="#" className="brand-logo">Logo</a>
-                <ul id="nav-mobile" className="right hide-on-med-and-down">
-                    <li><a href="/dashboard">Try It Out</a></li>
-                    <li><a href="/auth/google">Log In</a></li>
-                </ul>
+class Header extends Component {
+    constructor(props) {
+        super(props);
+
+        this.toggle = this.toggle.bind(this);
+        this.state = {
+            isOpen: false
+        };
+    }
+
+    toggle() {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
+    }
+
+    render() {
+        return (
+            <div className="navbar--dark">
+                <Navbar color="faded" dark expand="md">
+                    <div className="container">
+                        <NavbarBrand href="/">Stock Aggregator</NavbarBrand>
+                        <NavbarToggler onClick={this.toggle} />
+                        <Collapse isOpen={this.state.isOpen} navbar>
+                            <Nav className="ml-auto" navbar>
+                                <NavItem>
+                                    <NavLink className="navbar__buttons" href="/dashboard">Try It Out</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="navbar__buttons" href="https://github.com/reactstrap/reactstrap">Log In</NavLink>
+                                </NavItem>
+                            </Nav>
+                        </Collapse>
+                    </div>
+                </Navbar>
             </div>
-        </nav>
-    )
+        );
+    }
 }
 
-export default header;
+
+export default Header;
