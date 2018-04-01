@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AllStocksContainer from './AllStocksContainer';
 import Header from '../components/Header';
+import Landing from '../components/Landing';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
