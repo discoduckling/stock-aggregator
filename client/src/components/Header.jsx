@@ -38,7 +38,8 @@ class Header extends Component {
                                     <NavLink className="navbar__buttons" href="/dashboard">Try It Out</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="navbar__buttons" href="https://github.com/reactstrap/reactstrap">Log In</NavLink>
+                                    <NavLink className="navbar__buttons" href="/auth/login">Log In</NavLink>
+                                    {/* <a href='auth/login'>Log In</a> */}
                                 </NavItem>
                             </Nav>
                         </Collapse>
