@@ -1,16 +1,17 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('users');
+const requireLogin = require('../middleware/requireLogin');
 
 module.exports = app => {
     app.get('/api/current_user', (req, res) => {
         res.send(req.user);
     });
 
-    app.get('/api/tickers', (req, res) => {
+    app.get('/api/tickers', requireLogin, (req, res) => {
         res.send(req.user.tickers);
     });
 
-    app.post('/api/tickers', async (req, res) => {
+    app.post('/api/tickers', requireLogin, async (req, res) => {
         const newTicker = {
             symbol: req.body.ticker.toUpperCase(),
             purchases: [],
