@@ -8,7 +8,7 @@ import RowInput from './RowInput';
 
 class StockContainer extends Component {
     state = {
-        ticker: this.props.data.ticker,
+        ticker: this.props.data.symbol,
         currentPrice: this.props.data.currentPrice,
         rows: []
     }

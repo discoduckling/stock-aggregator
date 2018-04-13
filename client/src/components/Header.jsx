@@ -52,7 +52,7 @@ class Header extends Component {
         }
     }
     render() {
-        console.log(this.props.auth);
+        // console.log(this.props.auth);
         return (
             <div className="navbar--dark">
                 <Navbar color="faded" dark expand="md">
