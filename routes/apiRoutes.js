@@ -27,5 +27,18 @@ module.exports = app => {
         } catch (err) {
             res.status(400).send(err);
         }
-    })
+    });
+
+    app.post('/api/tickers/:ticker_id', async (req, res) => {
+        const user = await User.findById(req.user.id);
+        const tickers = user.tickers.id(req.params.ticker_id);
+        tickers.purchases.push({qty: req.body.qty, date: req.body.date, cost: req.body.cost});
+        // console.log(user);
+        try {
+            await user.save();
+            res.send(req.user.tickers);
+        } catch (err) {
+            res.status(400).send(err);
+        }
+    });
 }

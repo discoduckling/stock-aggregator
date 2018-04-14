@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Motion, spring, presets } from 'react-motion';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import moment from 'moment';
+
 class RowData extends Component  {
     state = {
         show: true,
@@ -15,6 +17,8 @@ class RowData extends Component  {
         this.setState({show: false})
     }
     render () {
+        const d = new Date(this.props.date);
+        console.log(moment(d).format('DD/MM/YY'));
         return (
             <Motion 
                 defaultStyle={{
@@ -37,7 +41,7 @@ class RowData extends Component  {
                         }}
                         className="row row--data">
                         <div className="row--data__num">{this.props.num}</div>
-                        <div className="row--data__date">{this.props.date}</div>
+                            <div className="row--data__date">{moment(d).format('MM/DD/YY')}</div>
                         <div className="row--data__name">{this.props.qty}</div>
                         <div className="row--data__name">{this.props.cost}</div>
                         <div className="row--data__name">{this.props.profit}</div>

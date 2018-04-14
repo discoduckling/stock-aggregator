@@ -16,3 +16,10 @@ export const addTicker = (values) => async dispatch => {
     const res = await axios.post('/api/tickers', values);
     dispatch({ type: FETCH_TICKERS, payload: res.data })
 };
+
+export const addPurchase = (values, id) => async dispatch => {
+    // console.log(values);
+    // console.log(id);
+    const res = await axios.post(`/api/tickers/${id}`, values);
+    dispatch({ type: FETCH_TICKERS, payload: res.data })
+};
