@@ -71,9 +71,9 @@ class AllStocksContainer extends Component {
                         {/* {tickers} */}
                         {this.renderTickers()}
                         <div className='content-container-center'>
-                                <FloatingActionButton mini={true} onClick={() => this.setState({ modalOpen: true })}>
-                                    <ContentAdd />
-                                </FloatingActionButton>
+                            <FloatingActionButton mini={true} onClick={() => this.setState({ modalOpen: true })}>
+                                <ContentAdd />
+                            </FloatingActionButton>
                         </div>
                     </div>
                 </MuiThemeProvider>

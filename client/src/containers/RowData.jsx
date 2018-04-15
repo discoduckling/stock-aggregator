@@ -3,6 +3,8 @@ import { Motion, spring, presets } from 'react-motion';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import moment from 'moment';
+import * as actions from '../actions';
+import { connect } from 'react-redux';
 
 class RowData extends Component  {
     state = {
@@ -18,7 +20,7 @@ class RowData extends Component  {
     }
     render () {
         const d = new Date(this.props.date);
-        console.log(moment(d).format('DD/MM/YY'));
+        // console.log(moment(d).format('DD/MM/YY'));
         return (
             <Motion 
                 defaultStyle={{
@@ -57,7 +59,7 @@ class RowData extends Component  {
                                 fontSize: `${.5  * style.height}px`}}
                             label='&times;'
                             style={{height: '3rem', minWidth: '2rem', width: '100%'}} 
-                            onClick={this.onClickHandler}/>
+                            onClick={() => this.props.deletePurchase(this.props.ticker_id, this.props.id)}/>
                         </div>
                         
                     </div>
@@ -68,4 +70,4 @@ class RowData extends Component  {
     }
 }
 
-export default RowData;
+export default connect(null, actions)(RowData);

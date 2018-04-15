@@ -57,13 +57,17 @@ body {
   font-size: 4rem; }
 
 .price {
-  display: flex;
   flex-grow: 1;
   flex-basis: 100%;
   align-items: center;
-  justify-content: center;
   font-family: 'Quattrocento Sans', sans-serif;
   font-size: 4rem; }
+  .price button {
+    font-size: 2rem;
+    float: right;
+    background-color: transparent;
+    border: none;
+    color: red; }
 
 .row--header {
   color: white; }

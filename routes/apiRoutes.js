@@ -23,22 +23,47 @@ module.exports = app => {
         }, { new: true });
         try {
             await user.save();
-            res.send(req.user.tickers);
+            res.send(user.tickers);
         } catch (err) {
             res.status(400).send(err);
         }
     });
 
-    app.post('/api/tickers/:ticker_id', async (req, res) => {
+    app.post('/api/tickers/:ticker_id', requireLogin, async (req, res) => {
         const user = await User.findById(req.user.id);
         const tickers = user.tickers.id(req.params.ticker_id);
         tickers.purchases.push({qty: req.body.qty, date: req.body.date, cost: req.body.cost});
-        // console.log(user);
         try {
             await user.save();
-            res.send(req.user.tickers);
+            res.send(user.tickers);
+            
         } catch (err) {
             res.status(400).send(err);
         }
     });
+
+    app.delete('/api/tickers/:ticker_id', requireLogin, async (req, res) => {
+        const user = await User.findById(req.user.id);
+        await user.tickers.pull({_id: req.params.ticker_id});
+
+        try {
+            await user.save();
+            res.send(user.tickers);
+        } catch (err) {
+            res.status(400).send(err);
+        }
+    })
+
+    app.delete('/api/tickers/:ticker_id/:purchase_id', requireLogin, async (req, res) => {
+        const user = await User.findById(req.user.id);
+        const tickers = await user.tickers.id(req.params.ticker_id);
+        await tickers.purchases.pull({_id: req.params.purchase_id});
+
+        try {
+            await user.save();
+            res.send(user.tickers);
+        } catch (err) {
+            res.status(400).send(err);
+        }
+    })
 }

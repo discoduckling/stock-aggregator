@@ -11,8 +11,8 @@ import reduxThunk from 'redux-thunk';
 import logger from 'redux-logger';
 // import registerServiceWorker from './registerServiceWorker';
 
-// const store = createStore(reducers, applyMiddleware(reduxThunk, logger));
-const store = createStore(reducers, applyMiddleware(reduxThunk));
+const store = createStore(reducers, applyMiddleware(reduxThunk, logger));
+// const store = createStore(reducers, applyMiddleware(reduxThunk));
 ReactDOM.render(
     <Provider store={store}>
         <App />

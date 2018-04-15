@@ -15,7 +15,7 @@
 }
 
 .price {
-    display: flex;
+    // display: flex;
     // border: 1px solid green;
     // height: 100%;
     // width: 30%;
@@ -24,8 +24,17 @@
     flex-grow: 1;
     flex-basis: 100%;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
     // background-color: rgb(253, 227, 170);
     font-family: 'Quattrocento Sans', sans-serif;
     font-size: 4rem;
+    & button {
+        font-size: 2rem;
+        // transform: translate(114px,-20px);
+        float: right;
+        background-color: transparent;
+        border: none;
+        color: rgb(255, 0, 0);
+
+    }
 }

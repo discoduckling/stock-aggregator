@@ -4,7 +4,8 @@ const { Schema } = mongoose;
 const purchaseSchema = new Schema({
     qty: Number,
     date: Date,
-    price: Number
+    price: Number,
+    cost: Number
 });
 
 module.exports = purchaseSchema;
