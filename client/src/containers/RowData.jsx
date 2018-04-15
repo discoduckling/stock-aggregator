@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Motion, spring, presets } from 'react-motion';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import moment from 'moment';
+import * as actions from '../actions';
+import { connect } from 'react-redux';
+
 class RowData extends Component  {
     state = {
         show: true,
@@ -15,6 +19,8 @@ class RowData extends Component  {
         this.setState({show: false})
     }
     render () {
+        const d = new Date(this.props.date);
+        // console.log(moment(d).format('DD/MM/YY'));
         return (
             <Motion 
                 defaultStyle={{
@@ -37,7 +43,7 @@ class RowData extends Component  {
                         }}
                         className="row row--data">
                         <div className="row--data__num">{this.props.num}</div>
-                        <div className="row--data__date">{this.props.date}</div>
+                            <div className="row--data__date">{moment(d).format('MM/DD/YY')}</div>
                         <div className="row--data__name">{this.props.qty}</div>
                         <div className="row--data__name">{this.props.cost}</div>
                         <div className="row--data__name">{this.props.profit}</div>
@@ -53,7 +59,7 @@ class RowData extends Component  {
                                 fontSize: `${.5  * style.height}px`}}
                             label='&times;'
                             style={{height: '3rem', minWidth: '2rem', width: '100%'}} 
-                            onClick={this.onClickHandler}/>
+                            onClick={() => this.props.deletePurchase(this.props.ticker_id, this.props.id)}/>
                         </div>
                         
                     </div>
@@ -64,4 +70,4 @@ class RowData extends Component  {
     }
 }
 
-export default RowData;
+export default connect(null, actions)(RowData);

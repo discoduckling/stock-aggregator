@@ -45,7 +45,7 @@ class AllStocksContainer extends Component {
         this.setState({ modalOpen: false });
     }
     renderTickers = () => {
-        console.log(this.props.tickers);
+        // console.log(this.props.tickers);
         let tickers = null;
         if (this.props.tickers) {
             tickers = this.props.tickers.map(ticker => <StockContainer data={ticker} />)
@@ -71,9 +71,9 @@ class AllStocksContainer extends Component {
                         {/* {tickers} */}
                         {this.renderTickers()}
                         <div className='content-container-center'>
-                                <FloatingActionButton mini={true} onClick={() => this.setState({ modalOpen: true })}>
-                                    <ContentAdd />
-                                </FloatingActionButton>
+                            <FloatingActionButton mini={true} onClick={() => this.setState({ modalOpen: true })}>
+                                <ContentAdd />
+                            </FloatingActionButton>
                         </div>
                     </div>
                 </MuiThemeProvider>
