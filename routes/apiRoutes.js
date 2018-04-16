@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('users');
 const requireLogin = require('../middleware/requireLogin');
+const axios = require('axios');
 
 module.exports = app => {
     app.get('/api/current_user', (req, res) => {
@@ -12,15 +13,18 @@ module.exports = app => {
     });
 
     app.post('/api/tickers', requireLogin, async (req, res) => {
+        const tickerInfo = await axios.get(`https://api.iextrading.com/1.0/stock/${req.body.ticker}/delayed-quote`);
         const newTicker = {
             symbol: req.body.ticker.toUpperCase(),
             purchases: [],
-            currentPrice: 10
+            currentPrice: tickerInfo.delayedPrice
         };
 
         const user = await User.findByIdAndUpdate(req.user.id, {
-            tickers:[...req.user.tickers, { symbol: req.body.ticker.toUpperCase() }]
+            tickers: [...req.user.tickers, { symbol: req.body.ticker.toUpperCase(), currentPrice: tickerInfo.data.delayedPrice }]
         }, { new: true });
+
+        
         try {
             await user.save();
             res.send(user.tickers);
@@ -44,7 +48,8 @@ module.exports = app => {
 
     app.delete('/api/tickers/:ticker_id', requireLogin, async (req, res) => {
         const user = await User.findById(req.user.id);
-        await user.tickers.pull({_id: req.params.ticker_id});
+        const tickers = await user.tickers;
+        await tickers.pull({_id: req.params.ticker_id});
 
         try {
             await user.save();

@@ -6,8 +6,18 @@ import Price from './Price';
 import RowData from '../containers/RowData';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
+
+const calculateProfit = (qty, cost, currentPrice) => {
+    return qty * (currentPrice - cost);
+};
+
+const calculateTotalProfit = (purchases, currentPrice) => {
+    var total = 0;
+    for (var i = 0; i < purchases.length; i++) {
+        total += calculateProfit(purchases[i].qty, purchases[i].cost, currentPrice);
+    };
+    return total.toFixed(2);
+}
 
 class StockContainer extends Component {
     state = {
@@ -16,17 +26,7 @@ class StockContainer extends Component {
     componentDidMount() {
         this.props.fetchTickers();
     }
-    // componentWillReceiveProps(nextProps) {
-    //     // console.log('updating');
-    //     this.props.fetchTickers();
-    // }
-    // componentWillReceiveProps(nextProps) {
-    //     // console.log('now', this.props.data.purchases);
-    //     // console.log('next', nextProps.data.purchases);
-    //     if (nextProps.data.purchases.length !== this.props.data.purchases.length) {
-    //         this.props.fetchTickers();
-    //     }
-    // }
+
     renderDataRows = () => {
         let dataRows = null;
         if (this.props.rows) {
@@ -37,20 +37,14 @@ class StockContainer extends Component {
                 date={purchase.date}
                 qty={purchase.qty}
                 cost={purchase.cost.toFixed(2)}
-                profit={0}
+                profit={calculateProfit(purchase.qty, purchase.cost, this.props.currentPrice).toFixed(2)}
             />)
         }
         return dataRows;
     }
     render() {
-        // console.log(this.props);
         return (
             <div>
-                {/* <div className='content-container-center'>
-                    <FloatingActionButton mini={true}>
-                        <ContentAdd />
-                    </FloatingActionButton>
-                </div> */}
                 <div className='content-center stock-container'>
                     <Ticker name={this.props.ticker} />
                     <div>
@@ -59,9 +53,8 @@ class StockContainer extends Component {
                         <RowInput id={this.props.data._id}/>
                     </div>
                     <Price 
-                        price={null} 
+                        price={calculateTotalProfit(this.props.rows, this.props.currentPrice)} 
                         ticker={this.props.ticker}
-                        // delete={() => console.log(`delete ${this.props.ticker}`)}
                         delete={() => this.props.deleteTicker(this.state.id)}
                     />
                 </div>
@@ -72,7 +65,7 @@ class StockContainer extends Component {
 };
 
 const mapStateToProps = (state, ownProps) => {
-    const stock = state.tickers.filter(ticker => ticker._id == ownProps.data._id)[0];
+    const stock = state.tickers.filter(ticker => ticker._id === ownProps.data._id)[0];
     return {
         ticker: stock.symbol,
         currentPrice: stock.currentPrice,
