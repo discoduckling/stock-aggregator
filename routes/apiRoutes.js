@@ -8,8 +8,20 @@ module.exports = app => {
         res.send(req.user);
     });
 
-    app.get('/api/tickers', requireLogin, (req, res) => {
-        res.send(req.user.tickers);
+    app.get('/api/tickers', requireLogin, async (req, res) => {
+        const user = await User.findById(req.user.id);
+        const tickers = await user.tickers;
+        for (var i = 0; i < tickers.length; i++) {
+            var currentPrice = await axios.get(`https://api.iextrading.com/1.0/stock/${tickers[i].symbol}/delayed-quote`);
+            tickers[i].currentPrice = currentPrice.data.delayedPrice;
+        }
+        try {
+            await user.save();
+            res.send(user.tickers);
+        } catch (err) {
+            res.status(400).send(err);
+        }
+
     });
 
     app.post('/api/tickers', requireLogin, async (req, res) => {
