@@ -48,7 +48,8 @@ module.exports = app => {
 
     app.delete('/api/tickers/:ticker_id', requireLogin, async (req, res) => {
         const user = await User.findById(req.user.id);
-        await user.tickers.pull({_id: req.params.ticker_id});
+        const tickers = await user.tickers;
+        await tickers.pull({_id: req.params.ticker_id});
 
         try {
             await user.save();

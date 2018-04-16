@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 
 app.use(
     cookieSession({
-        maxAge: 3 * 60 * 1000,
+        maxAge: 3 * 60 * 60 * 1000,
         keys: [keys.COOKIE_KEY]
     })
 );

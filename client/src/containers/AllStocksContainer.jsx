@@ -9,26 +9,20 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import AddTickerDialog from './AddTickerDialog';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-// import { reduxForm, Field } from 'redux-form';
 
 class AllStocksContainer extends Component {
     state = {
-        stocks: [
-            {
-                ticker: 'AAPL',
-                currentPrice: 167.78,
-                rows: []
-            },
-            {
-                ticker: 'F',
-                currentPrice: 11.08,
-                rows: []
-            },
-        ],
         modalOpen: false
     }
     componentDidMount() {
         this.props.fetchTickers();
+    }
+    componentWillReceiveProps(nextProps) {
+        console.log('next props', nextProps.tickers);
+        console.log('old props', this.props.tickers);
+        // if (nextProps.tickers.length !== this.props.tickers.length) {
+        //     this.props.fetchTickers();
+        // }
     }
     addTickerHandler = () => {
         this.setState({ modalOpen: true });
@@ -45,7 +39,6 @@ class AllStocksContainer extends Component {
         this.setState({ modalOpen: false });
     }
     renderTickers = () => {
-        // console.log(this.props.tickers);
         let tickers = null;
         if (this.props.tickers) {
             tickers = this.props.tickers.map(ticker => <StockContainer data={ticker} />)
@@ -53,9 +46,6 @@ class AllStocksContainer extends Component {
         return tickers;
     }
     render () {
-        // console.log(this.props.tickers);
-        // let tickers = null;
-        // tickers = this.state.stocks.map((stock, i) => <StockContainer data={this.state.stocks[i]} />);
         let modal = null;
         if (this.state.modalOpen) {
             modal = <AddTickerDialog 
@@ -68,7 +58,6 @@ class AllStocksContainer extends Component {
                 <MuiThemeProvider>
                     <div>
                         { modal }
-                        {/* {tickers} */}
                         {this.renderTickers()}
                         <div className='content-container-center'>
                             <FloatingActionButton mini={true} onClick={() => this.setState({ modalOpen: true })}>
