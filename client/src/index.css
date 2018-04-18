@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Fredoka+One");
 @import url("https://fonts.googleapis.com/css?family=Quattrocento+Sans");
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,600");
 *,
@@ -151,3 +152,48 @@ body {
 
 .navbar__buttons {
   font-size: 1.4rem; }
+
+.landing__box {
+  padding: 4rem;
+  position: relative; }
+  .landing__box--left {
+    font-family: 'Fredoka One', cursive;
+    font-weight: bold;
+    color: #193446; }
+    @media (min-width: 1023px) {
+      .landing__box--left {
+        font-size: 10rem;
+        line-height: 10rem; } }
+    @media (min-width: 501px) and (max-width: 1022px) {
+      .landing__box--left {
+        font-size: 7rem;
+        line-height: 7rem; } }
+    @media (max-width: 500px) {
+      .landing__box--left {
+        font-size: 5rem;
+        line-height: 4rem; } }
+  .landing__box--right {
+    min-height: 50rem; }
+
+@media (min-width: 700px) {
+  .landing__btn {
+    width: 20rem;
+    margin: 0 auto;
+    height: 5rem;
+    font-size: 2rem; } }
+
+.landing__btn--group {
+  margin-top: 5rem; }
+
+img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%; }
+  @media (min-width: 769px) {
+    img {
+      transform: translate(-50%, -50%); } }
+  @media (max-width: 768px) {
+    img {
+      transform: translate(-50%, -90%); } }
