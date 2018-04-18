@@ -7,7 +7,8 @@
     display: grid;
     grid-template-columns: 25% 50% 25%;
     // background-color: rgb(211, 211, 211);
-    background-color: rgba(63,76,107,1);
+    // background-color: rgba(63,76,107,1);
+    background-color: $ink;
     color: white;
     border-radius: 2rem;
     -webkit-box-shadow: -1px 11px 5px -5px rgba(0,0,0,0.48);
