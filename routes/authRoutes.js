@@ -25,9 +25,9 @@ module.exports = app => {
         res.redirect('/');
     });
 
-    app.get('/', (req, res) => {
-        res.send(req.user);
-    })
+    // app.get('/', (req, res) => {
+    //     res.send(req.user);
+    // })
 }
 // module.exports = app => {
 //     app.get('/auth/google',
