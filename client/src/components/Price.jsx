@@ -14,7 +14,8 @@ const price = (props) => {
                 <i className="material-icons">clear</i>
             </IconButton>
             <div className="price--text">
-                {props.price}
+                {/* {props.price} */}
+                {props.ticker_id}
             </div>
             </div>
     )

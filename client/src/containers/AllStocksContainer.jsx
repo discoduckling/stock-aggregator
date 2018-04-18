@@ -21,7 +21,8 @@ class AllStocksContainer extends Component {
         console.log('next props', nextProps.tickers);
         console.log('old props', this.props.tickers);
         // if (nextProps.tickers.length !== this.props.tickers.length) {
-        //     this.props.fetchTickers();
+            // this.props.fetchTickers();
+            // this.forceUpdate()
         // }
     }
     addTickerHandler = () => {

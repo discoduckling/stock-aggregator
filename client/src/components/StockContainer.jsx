@@ -55,7 +55,8 @@ class StockContainer extends Component {
                     <Price 
                         price={calculateTotalProfit(this.props.rows, this.props.currentPrice)} 
                         ticker={this.props.ticker}
-                        delete={() => this.props.deleteTicker(this.state.id)}
+                        ticker_id={this.state.id}
+                        delete={() => this.props.deleteTicker(this.state.id, this.props.ticker)}
                     />
                 </div>
             </div>
