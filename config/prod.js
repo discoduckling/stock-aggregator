@@ -1,6 +1,8 @@
 module.exports = {
-    googleClientID: process.env.GOOGLE_CLIENT_ID,
-    googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    mongoURI: process.env.MONGO_URI,
-    cookieKey: process.env.COOKIE_KEY
+    CLIENT_ID_AUTH0: process.env.CLIENT_ID_AUTH0,
+    CLIENT_SECRET_AUTH0: process.env.CLIENT_ID_AUTH0,
+    AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
+    CALLBACK_URL: process.env.CALLBACK_URL,
+    MONGO_URI: process.env.MONGO_URI,
+    COOKIE_KEY: process.env.COOKIE_KEY
 }
