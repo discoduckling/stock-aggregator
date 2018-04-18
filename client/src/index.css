@@ -12,7 +12,9 @@ html {
   height: 100%; }
 
 body {
-  height: 100%; }
+  height: 100%;
+  background-color: #fdfeff;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png"); }
 
 .app {
   width: 100%; }
@@ -40,7 +42,7 @@ body {
   min-width: 55rem;
   display: grid;
   grid-template-columns: 25% 50% 25%;
-  background-color: #3f4c6b;
+  background-color: #193446;
   color: white;
   border-radius: 2rem;
   -webkit-box-shadow: -1px 11px 5px -5px rgba(0, 0, 0, 0.48);
@@ -85,7 +87,7 @@ body {
     line-height: 2rem;
     text-align: center;
     display: inline-block;
-    background-color: #3f4c6b; }
+    background-color: #193446; }
   .row--header__num {
     width: 8%; }
   .row--header__date {
@@ -100,11 +102,11 @@ body {
   font-size: 12px;
   height: 3rem;
   line-height: 3rem;
-  background: #606c88;
+  background: #193446;
   /* Old browsers */
-  background: -moz-linear-gradient(top, #606c88 0%, #3f4c6b 100%);
-  background: -webkit-linear-gradient(top, #606c88 0%, #3f4c6b 100%);
-  background: linear-gradient(to bottom, #606c88 0%, #3f4c6b 100%);
+  background: -moz-linear-gradient(top, #606c88 0%, #193446 100%);
+  background: -webkit-linear-gradient(top, #606c88 0%, #193446 100%);
+  background: linear-gradient(to bottom, #606c88 0%, #193446 100%);
   color: white; }
   .row--data__name, .row--data__date, .row--data__button, .row--data__num {
     text-align: center;
@@ -120,7 +122,7 @@ body {
 
 .row--input {
   height: 3rem;
-  background-color: #3f4c6b;
+  background-color: #193446;
   color: white; }
   .row--input__name, .row--input__date, .row--input__button, .row--input__num {
     text-align: center;
@@ -139,7 +141,7 @@ body {
   text-align: center; }
 
 .navbar--dark {
-  background-color: #3f4c6b;
+  background-color: #193446;
   padding-top: 5px;
   padding-bottom: 5px;
   -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.5);
