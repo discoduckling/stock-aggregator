@@ -4,6 +4,8 @@ import DatePicker from 'material-ui/DatePicker';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
+import * as actions from '../actions';
+import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 
 const muiTheme = getMuiTheme({
@@ -19,6 +21,7 @@ const muiTheme = getMuiTheme({
   
 class RowInput extends Component {
     state = {
+        id: this.props.id,
         date: new Date(),
         qty: '0',
         cost: '0'
@@ -37,9 +40,8 @@ class RowInput extends Component {
         this.setState({ cost })
     }
     onSubmit = () => {
-        // console.log('clicked');
         const sendState = this.state;
-        this.props.clicked(sendState);
+        this.props.addPurchase(sendState, this.state.id);
         this.setState({
             date: new Date(),
             qty: '0',
@@ -139,4 +141,4 @@ class RowInput extends Component {
 //     cost: PropTypes.number.isRequired
 // }
 
-export default RowInput;
+export default connect(null, actions)(RowInput);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import StockContainer from './StockContainer';
+import StockContainer from '../components/StockContainer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
@@ -7,22 +7,22 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 // import FlatButton from 'material-ui/FlatButton';
 // import TextField from 'material-ui/TextField';
 import AddTickerDialog from './AddTickerDialog';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class AllStocksContainer extends Component {
     state = {
-        stocks: [
-            {
-                ticker: 'AAPL',
-                currentPrice: 167.78,
-                rows: []
-            },
-            {
-                ticker: 'F',
-                currentPrice: 11.08,
-                rows: []
-            },
-        ],
         modalOpen: false
+    }
+    componentDidMount() {
+        this.props.fetchTickers();
+    }
+    componentWillReceiveProps(nextProps) {
+        console.log('next props', nextProps.tickers);
+        console.log('old props', this.props.tickers);
+        // if (nextProps.tickers.length !== this.props.tickers.length) {
+        //     this.props.fetchTickers();
+        // }
     }
     addTickerHandler = () => {
         this.setState({ modalOpen: true });
@@ -38,9 +38,14 @@ class AllStocksContainer extends Component {
     cancelAddHandler = () => {
         this.setState({ modalOpen: false });
     }
-    render () {
+    renderTickers = () => {
         let tickers = null;
-        tickers = this.state.stocks.map((stock, i) => <StockContainer data={this.state.stocks[i]} />);
+        if (this.props.tickers) {
+            tickers = this.props.tickers.map(ticker => <StockContainer data={ticker} />)
+        }
+        return tickers;
+    }
+    render () {
         let modal = null;
         if (this.state.modalOpen) {
             modal = <AddTickerDialog 
@@ -51,12 +56,14 @@ class AllStocksContainer extends Component {
         return (
             <div>
                 <MuiThemeProvider>
-                    { modal }
-                    {tickers}
-                    <div className='content-container-center'>
-                            <FloatingActionButton mini={true} onClick={this.addTickerHandler}>
+                    <div>
+                        { modal }
+                        {this.renderTickers()}
+                        <div className='content-container-center'>
+                            <FloatingActionButton mini={true} onClick={() => this.setState({ modalOpen: true })}>
                                 <ContentAdd />
                             </FloatingActionButton>
+                        </div>
                     </div>
                 </MuiThemeProvider>
             </div>
@@ -64,4 +71,9 @@ class AllStocksContainer extends Component {
     }
 }
 
-export default AllStocksContainer;
+const mapStateToProps = state => {
+    return {
+        tickers: state.tickers
+    }
+}
+export default connect(mapStateToProps, actions)(AllStocksContainer);
