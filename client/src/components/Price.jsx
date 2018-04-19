@@ -8,6 +8,7 @@ const price = (props) => {
                     tooltip={`Delete ${props.ticker}`}
                     tooltipPosition="top-left"
                     onClick={props.delete}
+                    style={{ width: '39px'}}
                 >
                     <i className="material-icons">clear</i>
                 </IconButton>

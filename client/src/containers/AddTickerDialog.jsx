@@ -31,7 +31,7 @@ class AddTickerDialog extends Component {
         ];
         return (
             <Dialog
-                contentStyle={{ width: '50rem' }}
+                contentStyle={{ maxWidth: '50rem', width: '90%' }}
                 title="Add new ticker"
                 actions={actions}
                 modal={false}

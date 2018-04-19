@@ -1,11 +1,11 @@
 .stock-container {
     min-height: calc(#{$category-height} + (3 * #{$data_height}));
     max-width: 80rem;
-    width: 60%;
-    min-width: 55rem;
+    // width: 60%;
+    // min-width: 55rem;
     // border: 1px solid blue;
     display: grid;
-    grid-template-columns: 25% 50% 25%;
+    // grid-template-columns: 25% 50% 25%;
     // background-color: rgb(211, 211, 211);
     // background-color: rgba(63,76,107,1);
     background-color: $ink;
@@ -14,4 +14,13 @@
     -webkit-box-shadow: -1px 11px 5px -5px rgba(0,0,0,0.48);
     -moz-box-shadow: -1px 11px 5px -5px rgba(0,0,0,0.48);
     box-shadow: -1px 11px 5px -5px rgba(0,0,0,0.48);
+    @media (min-width: 501px) {
+        width: 60%;
+        grid-template-columns: 25% 50% 25%;
+    }
+    @media (max-width: 500px) {
+        width: 90%;
+        min-width: 30rem;
+        grid-template-columns: 15% 65% 20%;
+    }
 }
