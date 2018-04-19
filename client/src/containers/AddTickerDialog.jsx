@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-// import TextField from 'material-ui/TextField';
 import TickerAddField from '../components/TickerAddField';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
@@ -18,16 +17,10 @@ class AddTickerDialog extends Component {
     render () {
         const actions = [
             <FlatButton
-              label="Cancel"
+              label="Done"
               primary={true}
               onClick={this.props.cancelClick}
             />,
-            // <FlatButton
-            //   label="Submit"
-            //   primary={true}
-            //   keyboardFocused={true}
-            //   onClick={() => {this.props.addTicker; this.props.cancelClick}}
-            // />,
         ];
         return (
             <Dialog
@@ -38,13 +31,7 @@ class AddTickerDialog extends Component {
                 open={this.state.modalOpen}
                 onRequestClose={this.cancelAddHandler}
             >
-                {/* <TextField
-                    onChange={(e, ticker) => this.onDialogChange(ticker)}
-                    hintText="AAPL"
-                    errorText="Required"
-                /> */}
                 <form
-                    // onSubmit={this.props.handleSubmit(this.props.addTicker, () => this.props.cancelClick())}
                     onSubmit={this.props.handleSubmit(this.props.addTicker)}
                 >
                     <Field
