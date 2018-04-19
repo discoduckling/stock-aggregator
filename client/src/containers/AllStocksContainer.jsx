@@ -18,10 +18,11 @@ class AllStocksContainer extends Component {
         this.props.fetchTickers();
     }
     componentWillReceiveProps(nextProps) {
-        console.log('next props', nextProps.tickers);
-        console.log('old props', this.props.tickers);
+        // console.log('next props', nextProps.tickers);
+        // console.log('old props', this.props.tickers);
         // if (nextProps.tickers.length !== this.props.tickers.length) {
-        //     this.props.fetchTickers();
+            // this.props.fetchTickers();
+            // this.forceUpdate()
         // }
     }
     addTickerHandler = () => {
@@ -41,8 +42,19 @@ class AllStocksContainer extends Component {
     renderTickers = () => {
         let tickers = null;
         if (this.props.tickers) {
-            tickers = this.props.tickers.map(ticker => <StockContainer data={ticker} />)
+            tickers = this.props.tickers.map(ticker => {
+                // console.log(ticker.symbol, ticker._id);
+                // console.log(ticker);
+                return <StockContainer 
+                    id={ticker._id} 
+                    currentPrice={ticker.currentPrice} 
+                    purchases={ticker.purchases}
+                    symbol={ticker.symbol} />
+                // return <StockContainer data={ticker} />
+            })
+            
         }
+        
         return tickers;
     }
     render () {

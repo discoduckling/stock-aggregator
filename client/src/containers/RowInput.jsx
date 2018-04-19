@@ -40,8 +40,8 @@ class RowInput extends Component {
         this.setState({ cost })
     }
     onSubmit = () => {
-        const sendState = this.state;
-        this.props.addPurchase(sendState, this.state.id);
+        const sendState = {...this.state, id: this.props.id};
+        this.props.addPurchase(sendState, this.props.id);
         this.setState({
             date: new Date(),
             qty: '0',
@@ -51,6 +51,8 @@ class RowInput extends Component {
 
     render () {
         // console.log(this.state);
+        // console.log(this.state.id, this.props.symbol);
+        console.log(this.props.symbol, this.props.id);
         return (
             <MuiThemeProvider muiTheme={muiTheme}>
             <div className="row row--input">
