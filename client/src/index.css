@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Fredoka+One");
+@import url("https://fonts.googleapis.com/css?family=Baloo+Tamma");
 @import url("https://fonts.googleapis.com/css?family=Quattrocento+Sans");
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,600");
 *,
@@ -21,7 +22,8 @@ body {
   width: 100%; }
 
 .navbar-brand {
-  font-size: 2.5rem; }
+  font-size: 2.5rem;
+  font-family: 'Baloo Tamma', cursive; }
 
 .nav-link {
   font-size: 1rem; }
@@ -203,7 +205,8 @@ body {
     width: 20rem;
     margin: 0 auto;
     height: 5rem;
-    font-size: 2rem; } }
+    font-size: 2rem;
+    line-height: 4rem; } }
 
 .landing__btn--group {
   margin-top: 5rem; }
