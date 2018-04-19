@@ -15,18 +15,18 @@ class AddTickerDialog extends Component {
         this.setState({ newTicker: ticker })
     }
     render () {
-        const actions = [
-            <FlatButton
-              label="Done"
-              primary={true}
-              onClick={this.props.cancelClick}
-            />,
-        ];
+        // const actions = [
+        //     <FlatButton
+        //       label="Done"
+        //       primary={true}
+        //       onClick={this.props.cancelClick}
+        //     />,
+        // ];
         return (
             <Dialog
                 contentStyle={{ maxWidth: '50rem', width: '90%' }}
                 title="Add new ticker"
-                actions={actions}
+                // actions={actions}
                 modal={false}
                 open={this.state.modalOpen}
                 onRequestClose={this.cancelAddHandler}
@@ -38,6 +38,17 @@ class AddTickerDialog extends Component {
                         type='text'
                         name='ticker'
                         component={TickerAddField}
+                    />
+                    <FlatButton
+                        type='submit'
+                        label='Add Symbol'
+                        primary={true}
+                        // onClick={this.props.cancelClick}
+                    />
+                    <FlatButton
+                        label="Done"
+                        primary={true}
+                        onClick={this.props.cancelClick}
                     />
                 </form>
             </Dialog>
