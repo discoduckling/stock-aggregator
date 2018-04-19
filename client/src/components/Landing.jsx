@@ -10,7 +10,7 @@ const landing = () => {
                 <Col sm='12' md='6' className="landing__box landing__box--left">
                     An Easier Way to Monitor Your Assets
                     <div className="landing__btn-group">
-                        <Button size='lg' className='landing__btn'>Get Started!</Button>
+                        <Button className='landing__btn' href="/auth/login">Get Started!</Button>
                     </div>
                 </Col>
                 <Col sm='12' md='6' className="landing__box landing__box--right">

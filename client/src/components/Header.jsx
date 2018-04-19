@@ -41,9 +41,9 @@ class Header extends Component {
         } else {
             return (
                 <Nav className="ml-auto" navbar>
-                    <NavItem>
+                    {/* <NavItem>
                         <NavLink className="navbar__buttons" href="/dashboard">Try It Out</NavLink>
-                    </NavItem>
+                    </NavItem> */}
                     <NavItem>
                         <NavLink className="navbar__buttons" href="/auth/login">Log In</NavLink>
                     </NavItem>
