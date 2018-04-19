@@ -3,9 +3,7 @@ import StockContainer from '../components/StockContainer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-// import Dialog from 'material-ui/Dialog';
-// import FlatButton from 'material-ui/FlatButton';
-// import TextField from 'material-ui/TextField';
+import Loader from '../components/Loader';
 import AddTickerDialog from './AddTickerDialog';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
@@ -40,7 +38,8 @@ class AllStocksContainer extends Component {
         this.setState({ modalOpen: false });
     }
     renderTickers = () => {
-        let tickers = null;
+        // let tickers = null;
+        let tickers = <Loader />
         if (this.props.tickers) {
             tickers = this.props.tickers.map(ticker => {
                 return <StockContainer 
