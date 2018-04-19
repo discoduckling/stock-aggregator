@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import reduxThunk from 'redux-thunk';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 // import registerServiceWorker from './registerServiceWorker';
 
 // const store = createStore(reducers, applyMiddleware(reduxThunk, logger));
