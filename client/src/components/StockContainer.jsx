@@ -20,18 +20,34 @@ const calculateTotalProfit = (purchases, currentPrice) => {
 }
 
 class StockContainer extends Component {
-    state = {
-        id: this.props.data._id
-    }
+    // state = {
+    //     id: this.props.data._id
+    // }
     componentDidMount() {
         this.props.fetchTickers();
     }
 
+    // renderDataRows = () => {
+    //     let dataRows = null;
+    //     if (this.props.rows) {
+    //         dataRows = this.props.rows.map(purchase => <RowData 
+    //             ticker_id={this.state.id}
+    //             id={purchase._id}
+    //             // num={1}
+    //             date={purchase.date}
+    //             qty={purchase.qty}
+    //             cost={purchase.cost.toFixed(2)}
+    //             profit={calculateProfit(purchase.qty, purchase.cost, this.props.currentPrice).toFixed(2)}
+    //         />)
+    //     }
+    //     return dataRows;
+    // }
+
     renderDataRows = () => {
         let dataRows = null;
-        if (this.props.rows) {
-            dataRows = this.props.rows.map(purchase => <RowData 
-                ticker_id={this.state.id}
+        if (this.props.purchases) {
+            dataRows = this.props.purchases.map(purchase => <RowData
+                ticker_id={this.props.id}
                 id={purchase._id}
                 // num={1}
                 date={purchase.date}
@@ -42,20 +58,25 @@ class StockContainer extends Component {
         }
         return dataRows;
     }
+
     render() {
+        // console.log(this.props.ticker, this.state.id);
+        // console.log(this.props.id, this.props.symbol);
+        // console.log(this.props)
         return (
             <div>
                 <div className='content-center stock-container'>
-                    <Ticker name={this.props.ticker} />
+                    <Ticker name={this.props.symbol} />
                     <div>
                         <RowHeader />
                         { this.renderDataRows() }
-                        <RowInput id={this.props.data._id}/>
+                        <RowInput id={this.props.id} symbol={this.props.symbol}/>
                     </div>
                     <Price 
-                        price={calculateTotalProfit(this.props.rows, this.props.currentPrice)} 
-                        ticker={this.props.ticker}
-                        delete={() => this.props.deleteTicker(this.state.id)}
+                        price={calculateTotalProfit(this.props.purchases, this.props.currentPrice)} 
+                        ticker={this.props.symbol}
+                        ticker_id={this.props.id}
+                        delete={() => this.props.deleteTicker(this.props.id)}
                     />
                 </div>
             </div>
@@ -64,12 +85,14 @@ class StockContainer extends Component {
     
 };
 
-const mapStateToProps = (state, ownProps) => {
-    const stock = state.tickers.filter(ticker => ticker._id === ownProps.data._id)[0];
-    return {
-        ticker: stock.symbol,
-        currentPrice: stock.currentPrice,
-        rows: stock.purchases,
-    }
-}
-export default connect(mapStateToProps, actions)(StockContainer);
+// const mapStateToProps = (state, ownProps) => {
+//     const stock = state.tickers.filter(ticker => ticker._id === ownProps.data._id)[0];
+//     return {
+//         ticker: stock.symbol,
+//         currentPrice: stock.currentPrice,
+//         rows: stock.purchases,
+//     }
+// }
+// export default connect(mapStateToProps, actions)(StockContainer);
+
+export default connect(null, actions)(StockContainer);

@@ -18,7 +18,7 @@ export const addTicker = (values) => async dispatch => {
 };
 
 export const deleteTicker = (ticker_id) => async dispatch => {
-    // console.log(values);
+    // console.log(ticker_symbol, ticker_id);
     const res = await axios.delete(`/api/tickers/${ticker_id}`);
     dispatch({ type: FETCH_TICKERS, payload: res.data })
 };
