@@ -30,25 +30,35 @@ body {
   margin: 1rem auto; }
 
 .content-container-center {
-  max-width: 80rem;
-  width: 60%;
-  min-width: 55rem;
   margin: 1rem auto;
   text-align: end; }
+  @media (min-width: 501px) {
+    .content-container-center {
+      max-width: 80rem;
+      width: 60%; } }
+  @media (max-width: 500px) {
+    .content-container-center {
+      width: 90%; } }
 
 .stock-container {
   min-height: calc(2rem + (3 * 3rem));
   max-width: 80rem;
-  width: 60%;
-  min-width: 55rem;
   display: grid;
-  grid-template-columns: 25% 50% 25%;
   background-color: #193446;
   color: white;
   border-radius: 2rem;
   -webkit-box-shadow: -1px 11px 5px -5px rgba(0, 0, 0, 0.48);
   -moz-box-shadow: -1px 11px 5px -5px rgba(0, 0, 0, 0.48);
   box-shadow: -1px 11px 5px -5px rgba(0, 0, 0, 0.48); }
+  @media (min-width: 501px) {
+    .stock-container {
+      width: 60%;
+      grid-template-columns: 25% 50% 25%; } }
+  @media (max-width: 500px) {
+    .stock-container {
+      width: 90%;
+      min-width: 30rem;
+      grid-template-columns: 15% 65% 20%; } }
 
 .ticker {
   display: flex;
@@ -56,8 +66,15 @@ body {
   flex-basis: 100%;
   align-items: center;
   justify-content: center;
-  font-family: 'Quattrocento Sans', sans-serif;
-  font-size: 4rem; }
+  font-family: 'Quattrocento Sans', sans-serif; }
+  @media (min-width: 501px) {
+    .ticker {
+      font-size: 4rem; } }
+  @media (max-width: 500px) {
+    .ticker {
+      font-size: 2rem;
+      transform: rotate(-90deg);
+      width: 4rem; } }
 
 .price {
   flex-grow: 1;
@@ -72,12 +89,18 @@ body {
     border: none;
     color: red; }
   .price--text {
-    font-size: 30px;
     height: calc(100% - 100px);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%; }
+    @media (min-width: 501px) {
+      .price--text {
+        font-size: 3rem; } }
+    @media (max-width: 500px) {
+      .price--text {
+        font-size: 2rem;
+        transform: rotate(-90deg); } }
 
 .row--header {
   color: white; }
@@ -113,9 +136,9 @@ body {
     text-align: center;
     display: inline-block; }
   .row--data__num {
-    width: 8%; }
+    width: 3%; }
   .row--data__date {
-    width: 17%; }
+    width: 22%; }
   .row--data__name {
     width: 22%; }
   .row--data__button {
@@ -129,9 +152,9 @@ body {
     text-align: center;
     display: inline-block; }
   .row--input__num {
-    width: 8%; }
+    width: 3%; }
   .row--input__date {
-    width: 17%; }
+    width: 22%; }
   .row--input__name {
     width: 22%; }
   .row--input__button {

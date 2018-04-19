@@ -2,9 +2,16 @@
     margin: 1rem auto;
 }
 .content-container-center {
-    max-width: 80rem;
-    width: 60%;
-    min-width: 55rem;
+    // max-width: 80rem;
+    // width: 60%;
+    // min-width: 55rem;
     margin: 1rem auto;
     text-align: end;
+    @media (min-width: 501px) {
+        max-width: 80rem;
+        width: 60%;
+    }
+    @media (max-width: 500px) {
+        width: 90%;
+    }
 }
