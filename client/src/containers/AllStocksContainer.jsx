@@ -43,14 +43,12 @@ class AllStocksContainer extends Component {
         let tickers = null;
         if (this.props.tickers) {
             tickers = this.props.tickers.map(ticker => {
-                // console.log(ticker.symbol, ticker._id);
-                // console.log(ticker);
                 return <StockContainer 
+                    key={ticker._id}
                     id={ticker._id} 
                     currentPrice={ticker.currentPrice} 
                     purchases={ticker.purchases}
                     symbol={ticker.symbol} />
-                // return <StockContainer data={ticker} />
             })
             
         }

@@ -50,9 +50,6 @@ class RowInput extends Component {
     }
 
     render () {
-        // console.log(this.state);
-        // console.log(this.state.id, this.props.symbol);
-        console.log(this.props.symbol, this.props.id);
         return (
             <MuiThemeProvider muiTheme={muiTheme}>
             <div className="row row--input">
@@ -60,6 +57,7 @@ class RowInput extends Component {
                 </div>
                 <div className="row--input__date">
                         <DatePicker
+                        id="purchase-date"
                         value={this.state.date} 
                         onChange={(e, date) => this.onDateChange(date)}
                         inputStyle={{color: 'white', textAlign: 'center', top: '-3px'}}
