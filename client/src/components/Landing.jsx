@@ -1,10 +1,11 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
 import TickerImg from '../assets/ticker_screenshot_edit_2.png';
-
+import Footer from '../components/Footer';
 
 const landing = () => {
     return(
+        <div>
         <Container>
             <Row>
                 <Col sm='12' md='6' className="landing__box landing__box--left">
@@ -21,6 +22,8 @@ const landing = () => {
                 </Col>
             </Row>
         </Container>
+        <Footer />
+        </div>
     )
 };
 
